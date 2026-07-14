@@ -10,6 +10,7 @@ export interface FormStepProps {
   title: string
   question: string
   inputProps: InputProps
+  initialValue?: string
   submitButtonProps?: {
     label: string
     emojiIcom?: string
@@ -18,7 +19,7 @@ export interface FormStepProps {
 
 interface ActionsButtonProps {
   onBack?: () => void
-  onNext?: () => void
+  onNext?: (value: string) => void
   hideBackButton?: boolean
 }
 
@@ -27,12 +28,13 @@ export function FormStep({
   title,
   question,
   inputProps,
+  initialValue,
   submitButtonProps,
   hideBackButton,
   onBack,
   onNext,
 }: FormStepProps & ActionsButtonProps) {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(initialValue ?? '')
   const isCurrencyInput = inputProps.prefix === 'R$'
 
   const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
@@ -42,7 +44,7 @@ export function FormStep({
       return
     }
 
-    onNext?.()
+    onNext?.(inputValue)
   }
 
   return (
