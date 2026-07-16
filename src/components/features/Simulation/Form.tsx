@@ -19,13 +19,13 @@ export function SimulationForm() {
   const currentStep = simulationFormSteps[currentStepIndex] // Example: Get the first step for demonstration
 
   const handleNextStep = (value: string) => {
-    const updatedFormData = { ...formData, [currentStep.id]: value}
+    const updatedFormData = { ...formData, [currentStep.id]: value }
     setFormData(updatedFormData)
 
-    console.log({ updatedFormData})
-    
+    console.log({ updatedFormData })
+
     if (currentStepIndex + 1 > totalSteps - 1) {
-      const id =saveFormData(updatedFormData)
+      const id = saveFormData(updatedFormData)
       void navigate(`/resultado/${id}`)
       return
     }

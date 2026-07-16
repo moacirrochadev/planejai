@@ -18,7 +18,7 @@ export function SimulationResultsPage() {
 
   const data = id ? getFormData(id) : null
 
-  if (!data){
+  if (!data) {
     return <p>Simulação não encontrada</p>
   }
 
@@ -71,7 +71,7 @@ export function SimulationResultsPage() {
           <Card
             icon={Landmark}
             label="Dívidas / Parcelas"
-            value={data.debts}
+            value={data.debits}
             subtitle={'Valor comprometido em parcelas/dívidas'}
           />
         </div>

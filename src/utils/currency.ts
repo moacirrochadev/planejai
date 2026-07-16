@@ -13,7 +13,11 @@ export function formatCurrencyBRLInput(value: string) {
   })
 }
 
-export function parseCurrency(value: string): number {
+export function parseCurrency(value?: string | null): number {
+  if (!value) {
+    return 0
+  }
+
   return (
     parseFloat(value.replace(/\./g, '').replace(',', '.').replace('R$', '')) ||
     0
