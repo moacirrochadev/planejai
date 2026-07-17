@@ -18,7 +18,7 @@ export function Header() {
             </div>
             <span className="text-lg">
               <span className="text-muted-foreground font-medium">Planej</span>
-              <span className="font-extrabold">.ai</span>
+              <span className="font-extrabold uppercase">.ai</span>
             </span>
           </div>
           {/* Action Buttons */}
